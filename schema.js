@@ -1,6 +1,5 @@
 import { gql } from "apollo-server-express";
 
-// Construct a schema, using GraphQL schema language
 const typeDefs = gql`
   type Course {
     id: String
@@ -18,7 +17,15 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addCourse(id: String): Course
+    addCourse(
+      title: String!
+      author: String!
+      description: String
+      topic: String!
+      url: String
+    ): Course
+    upvote(id: String!): Course
+    downvote(id: String!): Course
   }
 `;
 
