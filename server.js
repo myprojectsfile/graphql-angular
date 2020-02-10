@@ -6,7 +6,9 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 const server = new ApolloServer({ typeDefs, resolvers });
-mongoose.connect("mongodb://localhost/graphqlserver");
+mongoose.connect("mongodb://localhost/graphqlserver", {
+  useNewUrlParser: true
+});
 const connection = mongoose.connection;
 
 connection.once("open", () => {
